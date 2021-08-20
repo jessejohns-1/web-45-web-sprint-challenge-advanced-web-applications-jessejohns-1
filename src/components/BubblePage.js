@@ -3,19 +3,53 @@ import React, { useEffect, useState } from "react";
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
 import fetchColorService from '../services/fetchColorService';
-
+import axiosWithAuth from "../helpers/axiosWithAuth";
 const BubblePage = () => {
   const [colors, setColors] = useState([]);
   const [editing, setEditing] = useState(false);
+
+
+  useEffect(() => {
+    fetchColorService()
+    .then((res) => {
+      //setting state to the fetched colors
+      setColors(res);})
+    //catch errors
+    .catch((err) => {console.log(err);})
+
+  }, []);
 
   const toggleEdit = (value) => {
     setEditing(value);
   };
 
-  const saveEdit = (editColor) => {
+const saveEdit = (editColor) => {
+    axiosWithAuth()
+      //call the api
+      .put(`/api/colors/${editColor.id}`, editColor)
+      .then(res => {
+        console.log(res)
+        //Finding theIndex of color
+        let Index = colors.findIndex((color) => color.id === editColor.id);
+
+        colors[Index] = editColor
+        setColors([...colors])
+      })
+      //Catch errors
+      .catch((error) => {console.log(error); })
   };
 
+
   const deleteColor = (colorToDelete) => {
+    axiosWithAuth()
+      //call to the api 
+      .delete(`/api/colors/${colorToDelete.id}`)
+      //filtering through the color to delete
+      .then(() => {
+        setColors(colors.filter(color => color.id !== colorToDelete.id))
+      })
+      //Catching any of the errors errors
+      .catch(error => {console.log(error); })
   };
 
   return (

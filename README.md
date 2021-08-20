@@ -18,20 +18,20 @@ In this project you will create a login page and request a token from the server
 
 ### Task 1: Project Setup
 
-* [ ] Fork and clone this repository.
-* [ ] Create a new branch with the 
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
-* [ ] **RUN** `npm install` to install your dependencies.
-* [ ] **RUN** `npm start` to start your application.
+* [ x] Fork and clone this repository.
+* [ x] Create a new branch with the 
+- [ x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [ x] Push commits: git push origin `<firstName-lastName>`.
+* [ x] **RUN** `npm install` to install your dependencies.
+* [ x] **RUN** `npm start` to start your application.
 
 ### Task 2: CodeGrade Setup
 
-* [ ] Open the assignment in Canvas and click on the "Set up git" option.
-* [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
-* [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
-* [ ] Check to see that Codegrade has accepted your git submission.
+* [ x] Open the assignment in Canvas and click on the "Set up git" option.
+* [ x] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
+* [x ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
+* [ x] Check to see that Codegrade has accepted your git submission.
 
 ### Task 3: Project Requirements
 
@@ -42,24 +42,24 @@ Your finished project must include all of the following requirements. **Unlike o
 #### Authentication
 > *Build a login form to authenticate your users along with all the components and utilities needed to support authentication.*
 
-* [ ] In `Login.js`, build all UI and state functionality needed to capture a username and password.
-* [ ] Add in two routes that display the login component, one for the default path '/' and one for the login path '/login'.
-* [ ] **Make sure that the input for your username and password includes the id="username" and id="password" attributes. Codegrade autotests will fail without them.**
-* [ ] Build in functionality that would allow an error to be displayed in the provided p tag if either the username or password is incorrect.
-* [ ] **Make sure your error p tag has an id="error" attribute attached. Codegrade autotests will fail without them.**
-* [ ] Construct an http request that retrieves an auth token from the server when the username `Lambda` and the password `School` is passed into the request.
-* [ ] Save the token to localStorage.
-* [ ] Build a `axiosWithAuth` module within the helpers folder to create an instance of axios with the authentication header.
-* [ ] Build a `PrivateRoute` component within the components folder and use it to protect the route that renders the `BubblesPage` component.
-* [ ] In `App.js`, build the backend to the logout button. When pressed, send an http request to the logout endpoint and remove the authentication token from localStorage. Use window.location.href to redirect to the login page.
+* [x ] In `Login.js`, build all UI and state functionality needed to capture a username and password.
+* [x ] Add in two routes that display the login component, one for the default path '/' and one for the login path '/login'.
+* [ x] **Make sure that the input for your username and password includes the id="username" and id="password" attributes. Codegrade autotests will fail without them.**
+* [x ] Build in functionality that would allow an error to be displayed in the provided p tag if either the username or password is incorrect.
+* [ x] **Make sure your error p tag has an id="error" attribute attached. Codegrade autotests will fail without them.**
+* [x ] Construct an http request that retrieves an auth token from the server when the username `Lambda` and the password `School` is passed into the request.
+* [x ] Save the token to localStorage.
+* [ x] Build a `axiosWithAuth` module within the helpers folder to create an instance of axios with the authentication header.
+* [ x] Build a `PrivateRoute` component within the components folder and use it to protect the route that renders the `BubblesPage` component.
+* [ x] In `App.js`, build the backend to the logout button. When pressed, send an http request to the logout endpoint and remove the authentication token from localStorage. Use window.location.href to redirect to the login page.
 
 #### Consuming the API
 > *Add in the http requests and state changes needed to connect our api to the web application. Consider the effect of authentication on your api requests.*
 
-* [ ] In `services/fetchColorServices.js`, build out fetchColorService function to make a GET request to fetch the color data for your bubbles.
-* [ ] When `BubblePages` mounts, call fetchColorServices and save it's result in state.
-* [ ] In `BubblePage.js`, complete `saveEdit`, and `deleteColor` functions to make API requests for to editing and delete data.
-* [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
+* [x ] In `services/fetchColorServices.js`, build out fetchColorService function to make a GET request to fetch the color data for your bubbles.
+* [x ] When `BubblePages` mounts, call fetchColorServices and save it's result in state.
+* [x ] In `BubblePage.js`, complete `saveEdit`, and `deleteColor` functions to make API requests for to editing and delete data.
+* [x ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
 #### Testing
 * [ ] Finish the test in `Color.test.js`, `ColorList.test.js`, `BubblePage.test.js`. You will need to use rerendering, function mocking and spies in order to complete.
@@ -98,6 +98,14 @@ Your finished project must include all of the following requirements. **Unlike o
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
 1. Explain what a token is used for.
+a token contains security information about a user and can be verified by the system
 2. What steps can you take in your web apps to keep your data secure?
+ By using routing and authentication tokens ensuring the specified users have proper access and if not are redirected to a different page example in PrivateRoute
 3. Describe how web servers work.
+A client sends a request for resources from a server and the server sends responses.
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+.Post .Get .Put .Delete
+Post //Creates
+Get //Retrieves
+Put //Updates
+Delete //Deletes
