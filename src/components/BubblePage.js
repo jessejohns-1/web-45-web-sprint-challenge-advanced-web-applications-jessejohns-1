@@ -17,7 +17,7 @@ const BubblePage = () => {
     //catch errors
     .catch((err) => {console.log(err);})
 
-  }, []);
+  }, [editing]);
 
   const toggleEdit = (value) => {
     setEditing(value);

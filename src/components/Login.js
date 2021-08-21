@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div>
         <h1>Welcome to the Bubble App!</h1>
-        <div data-testid="loginForm" className="login-form">
+        <div className="login-form">
           <h2>Log in to pick your color</h2>
         </div>
   
